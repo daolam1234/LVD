@@ -9,6 +9,8 @@ require_once './controllers/HomeController.php';
 
 // Require toàn bộ file Models
 require_once './models/Student.php';
+require_once './models/sanpham.php';
+
 
 // Route
 $act = $_GET['act'] ?? '/';

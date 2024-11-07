@@ -2,6 +2,13 @@
 
 class HomeController
 {
+    public $modelSanPham;
+
+    public function __construct()
+    {
+        $this->modelSanPham = new SanPham();
+    }
+
     public function home()
     {
         echo "Day la home";
@@ -12,6 +19,8 @@ class HomeController
     }
     public function danhSachSanPham()
     {
-        echo "day la danh sach san pham";
+        $listProduct = $this->modelSanPham->getAllProduct();
+        // var_dump($listProduct);die();
+        require_once './views/listProduct.php';
     }
 }

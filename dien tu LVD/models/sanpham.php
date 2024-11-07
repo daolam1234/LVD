@@ -1,6 +1,6 @@
 <?php
 
-class Sanpham
+class SanPham
 {
     public $conn; //khao bao phuong thuc
 
