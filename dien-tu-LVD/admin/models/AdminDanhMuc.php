@@ -13,7 +13,7 @@ class AdminDanhmuc
     public function getAllDanhMuc()
     {
         try {
-            $sql = 'SELECT *FROM san_phams';
+            $sql = 'SELECT *FROM danh_mucs';
 
             $stmt = $this->conn->prepare($sql);
 
