@@ -19,7 +19,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Quan ly danh muc san pham</h1>
+                    <h1>Quan ly san pham</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -32,21 +32,25 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">them danh muc</h3>
+                            <h3 class="card-title">them san pham</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="<?= BASE_URL_ADMIN . '/?act=them-danh-muc' ?>" method="post">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label>Ten danh muc</label>
-                                    <input type="text" class="form-control" name="ten_danh_muc" placeholder="Ten danh muc">
+                        <form action="<?= BASE_URL_ADMIN . '/?act=them-san-pham' ?>" method="post">
+                            <div class="card-body row">
+                                <div class="form-group col-12">
+                                    <label>Ten san pham</label>
+                                    <input type="text" class="form-control" name="ten_san_pham" placeholder="Ten san pham">
                                 </div>
-                                <div class="form-group">
-                                    <label>Mo ta</label>
-                                    <textarea name="mo_ta" class="form-control" id="" placeholder="Nhap mo ta"></textarea>
+                                <div class="form-group col-6">
+                                    <label>Gia san pham</label>
+                                    <input type="number" class="form-control" name="gia_san_pham" placeholder="Gia san pham">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Ten khuyen mai</label>
+                                    <input type="number" class="form-control" name="gia_khuyen_mai" placeholder="Gia khuyen mai">
+                                </div>
 
-                                </div>
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">

@@ -19,7 +19,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Quan ly danh muc san pham</h1>
+                    <h1>Quan ly tai khoan quan tri vien</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -32,22 +32,30 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">them danh muc</h3>
+                            <h3 class="card-title">them tai khoan quan tri</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="<?= BASE_URL_ADMIN . '/?act=them-danh-muc' ?>" method="post">
+                        <form action="<?= BASE_URL_ADMIN . '?act=them-quan-tri' ?>" method="POST">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Ten danh muc</label>
-                                    <input type="text" class="form-control" name="ten_danh_muc" placeholder="Ten danh muc">
+                                    <label>ten tai khoan</label>
+                                    <input type="text" class="form-control" name="ho_ten" placeholder="Nhap ho ten">
+                                    <?php if (isset($_SESSION['error']['ho_ten'])) { ?>
+                                        <p class="text-danger"><?= $_SESSION['error']['ho_ten'] ?></p>
+                                    <?php }
+                                    ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Mo ta</label>
-                                    <textarea name="mo_ta" class="form-control" id="" placeholder="Nhap mo ta"></textarea>
-
+                                    <label>Email</label>
+                                    <input type="emaill" class="form-control" name="email" placeholder="Nhap Email">
+                                    <?php if (isset($_SESSION['error']['email'])) { ?>
+                                        <p class="text-danger"><?= $_SESSION['error']['email'] ?></p>
+                                    <?php }
+                                    ?>
                                 </div>
-                                <!-- /.card-body -->
+
+
 
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Submit</button>
