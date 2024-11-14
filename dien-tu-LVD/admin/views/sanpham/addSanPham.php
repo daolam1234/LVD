@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="form-group col-6">
                                     <label>Album ảnh</label>
-                                    <input type="file" class="form-control" name="img_array" multiple>
+                                    <input type="file" class="form-control" name="img_array[]" multiple>
 
                                 </div>
 

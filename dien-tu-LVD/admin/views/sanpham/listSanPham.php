@@ -58,7 +58,7 @@
                                             <th><?= $key + 1 ?></th>
                                             <th><?= $sanPham['ten_san_pham'] ?></th>
                                             <th>
-                                                <img src="<?= BASE_URL_ADMIN . $sanPham['hinh_anh'] ?> " style="width: 100px;"
+                                                <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?> " style="width: 100px;"
                                                     onerror="this.onerror=null; this.src='https://th.bing.com/th/id/OIP.YRKgxCqyL9gs6rG9wZ_42AHaHa?rs=1&pid=ImgDetMain'">
                                             </th>
                                             <th><?= $sanPham['gia_san_pham'] ?></th>
@@ -66,9 +66,10 @@
                                             <th><?= $sanPham['ten_danh_muc'] ?></th>
                                             <th><?= $sanPham['trang_thai'] == 1 ? 'Còn hàng' : '<s>Hết hàng</s>'; ?></th>
                                             <th>
-                                                <a href="<?= BASE_URL_ADMIN . '/?act=form-sua-san-pham&id_san_pham' . $sanPham['id'] ?>">
+                                                <a href="<?= BASE_URL_ADMIN . '?act=form-sua-san-pham&id_san_pham=' . $sanPham['id'] ?>">
                                                     <button class="btn btn-warning">Sua</button>
-                                                </a><a href="<?= BASE_URL_ADMIN . '/?act=form-sua-san-pham&id_san_pham' . $sanPham['id'] ?>">
+                                                </a><a href="<?= BASE_URL_ADMIN . '?act=xoa-san-pham&id_san_pham=' . $sanPham['id'] ?>"
+                                                    onclick="return confirm('Bạn có chắc muốn xóa không?')">
                                                     <button class="btn btn-danger">Xoa</button>
                                                 </a>
 

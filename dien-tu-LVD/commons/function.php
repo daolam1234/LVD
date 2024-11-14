@@ -23,7 +23,7 @@ function connectDB()
     }
 }
 
-//them file
+// //them file
 function uploadFile($file, $folderUpload)
 {
     $pathStorage = $folderUpload . time() . $file['name'];
@@ -36,7 +36,7 @@ function uploadFile($file, $folderUpload)
     return null;
 }
 
-//xoa file
+// //xoa file
 function deleteFile($file)
 {
     $pathDelete = PATH_ROOT . $file;
@@ -45,13 +45,13 @@ function deleteFile($file)
     }
 }
 
-//xao session sau khi load tranh
-function deleteSessionError()
-{
-    if (isset($_SESSION['flash'])) {
-        //huy session sau khi da tai trang
-        unset($_SESSION['flash']);
-        session_unset();
-        session_destroy();
-    }
-}
+// //xao session sau khi load tranh
+// function deleteSessionError()
+// {
+//     if (isset($_SESSION['flash'])) {
+//         //huy session sau khi da tai trang
+//         unset($_SESSION['flash']);
+//         session_unset();
+//         session_destroy();
+//     }
+// }

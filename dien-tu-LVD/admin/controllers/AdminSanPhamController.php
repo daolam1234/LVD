@@ -22,7 +22,7 @@ class AdminSanPhamController
         $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         require_once './views/sanpham/addSanPham.php';
 
-        deleteSessionError();
+        // deleteSessionError();
     }
     public function postAddSanPham()
     {
