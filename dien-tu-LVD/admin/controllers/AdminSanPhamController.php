@@ -22,7 +22,7 @@ class AdminSanPhamController
         $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         require_once './views/sanpham/addSanPham.php';
 
-        // deleteSessionError();
+        deleteSessionError();
     }
     public function postAddSanPham()
     {
@@ -47,6 +47,7 @@ class AdminSanPhamController
             //luu hinh anh
             $file_thumb = uploadFile($hinh_anh, './uploads/');
 
+            //mang hinh anh
             $img_array = $_FILES['img_array'];
 
             //tao 1 mang trong
@@ -72,7 +73,7 @@ class AdminSanPhamController
             if (empty($trang_thai)) {
                 $errors['trang_thai'] = 'không để trống rống trạng thái';
             }
-            if ($hinh_anh['error' !== 0]) {
+            if ($hinh_anh['error'] !== 0) {
                 $errors['hinh_anh'] = 'không để trống rống trạng thái';
             }
 
@@ -82,14 +83,28 @@ class AdminSanPhamController
             if (empty($errors)) {
                 //neu ko co loi
                 $san_pham_id = $this->modelSanPham->insertSanPham($ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $so_luong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $file_thumb);
-                var_dump($san_pham_id);
-                die;
+
+                if (!empty($img_array['name'])) {
+                    foreach ($img_array['name'] as $key => $value) {
+                        $file = [
+                            'name' => $img_array['name'][$key],
+                            'type' => $img_array['type'][$key],
+                            'tmp_name' => $img_array['tmp_name'][$key],
+                            'error' => $img_array['error'][$key],
+                            'size' => $img_array['size'][$key],
+                        ];
+
+                        $link_hinh_anh = uploadFile($file, './uploads/');
+                        $this->modelSanPham->insertAlbumAnhSanPham($san_pham_id, $link_hinh_anh);
+                    }
+                }
                 header("Location:" . BASE_URL_ADMIN . '/?act=san-pham');
             } else {
                 //tra ve form
                 //dat chi thi xoa session sau khi hirn thi form
                 $_SESSION['flash'] = true;
                 header("Location:" . BASE_URL_ADMIN . '/?act=form-them-san-pham');
+                exit();
             }
         }
     }
