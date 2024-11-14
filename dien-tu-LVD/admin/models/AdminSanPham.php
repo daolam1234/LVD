@@ -142,4 +142,79 @@ class AdminSanPham
             echo "loi" . $e->getMessage();
         }
     }
+
+    public function getDetailAnhSanPham($id)
+    {
+        try {
+            $sql = 'SELECT * FROM hinh_anh_san_phams WHERE id = :id';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([':id' => $id]);
+
+
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
+
+    public function updateAnhSanPham($id, $new_file)
+    {
+        try {
+            $sql = "UPDATE hinh_anh_san_phams SET
+           link_hinh_anh = :new_file
+          
+        
+        WHERE id = :id";
+
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([
+                ':new_file' => $new_file,
+                ':id' => $id
+
+            ]);
+
+            //lay id san pham vua them
+            return true;
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
+
+    public function destroyAnhSanPham($id)
+    {
+        try {
+            $sql = 'DELETE FROM hinh_anh_san_phams WHERE id = :id';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([
+                ':id' => $id
+            ]);
+
+            return true;
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
+
+    public function destroySanPham($id)
+    {
+        try {
+            $sql = 'DELETE FROM san_phams WHERE id = :id';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([
+                ':id' => $id
+            ]);
+
+            return true;
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
 }

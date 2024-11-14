@@ -113,7 +113,7 @@ class AdminSanPhamController
         //hàm dùng để hiển thị form nhập
         $id = $_GET['id_san_pham'];
         $sanPham = $this->modelSanPham->getDetailSanPham($id);
-        $listSanPham = $this->modelSanPham->getListAnhSanPham($id);
+        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
         $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         if ($sanPham) {
             require_once './views/sanpham/editSanPham.php';
@@ -212,4 +212,74 @@ class AdminSanPhamController
     // sua anh cu
     //ko sua anh cu
     //xoa anh cu
+
+    public function postEditAnhSanPham()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $san_pham_id = $_POST['san_pham_id'] ?? '';
+            //lay danh sach anh hien tai cua
+            $listAnhSanPhamCurrent = $this->modelSanPham->getListAnhSanPham($san_pham_id);
+
+            //xu ly anh tu form
+            $img_array = $_FILES['img_array'];
+            $img_delete = isset($_POST['img_delete']) ? explode(',', $_POST['img_delete']) : [];
+            $current_img_ids = $_POST['current_img_id'] ?? [];
+
+            //khai bao mang de luu anh moi
+            $upload_file = [];
+
+            //up anh moi hoac thay anh cu
+
+            foreach ($img_array['name'] as $key => $value) {
+                if ($img_array['error'][$key] == UPLOAD_ERR_OK) {
+                    $new_file = uploadFileAlbum($img_array, './uploads/', $key);
+                    if ($new_file) {
+                        $upload_file[] = [
+                            'id' => $current_img_ids[$key] ?? null,
+                            'file' => $new_file
+                        ];
+                    }
+                }
+            }
+
+            //luu anh moi vao db va xoa anh cu
+            foreach ($upload_file as $file_info) {
+                if ($file_info['id']) {
+                    $old_file = $this->modelSanPham->getDetailAnhSanPham($file_info['id'])['link_hinh_anh'];
+                    //cap nhat anh cu
+                    $this->modelSanPham->updateAnhSanPham($file_info['id'], $file_info['file']);
+                    //xoa anh cu
+                    deleteFile($old_file);
+                } else {
+                    //them anh moi
+                    $this->modelSanPham->insertAlbumAnhSanPham($san_pham_id, $file_info['file']);
+                }
+            }
+            //xu ly xoa anh
+            foreach ($listAnhSanPhamCurrent as $anhSP) {
+                $anh_id = $anhSP['id'];
+                if (in_array($anh_id, $img_delete)) {
+                    // xoa anh trong db
+                    $this->modelSanPham->destroyAnhSanPham($anh_id);
+                    //xoa file
+                    deleteFile($anhSP['link_hinh_anh']);
+                }
+            }
+            header("Location:" . BASE_URL_ADMIN . '/?act=form-sua-san-pham&id_san_pham=' . $san_pham_id);
+            exit();
+        }
+    }
+
+    public function deleteSanPham()
+    {
+        $id = $_GET['id_san_pham'];
+        $sanPham = $this->modelSanPham->getDetailSanPham($id);
+
+        if ($sanPham) {
+            deleteFile($sanPham['hinh_anh']);
+            $this->modelSanPham->destroySanPham($id);
+        }
+        header("Location: " . BASE_URL_ADMIN . '?act=san_pham');
+        exit();
+    }
 }
