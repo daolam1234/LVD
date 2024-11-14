@@ -44,30 +44,28 @@
                             <input type="hidden" name="san_pham_id" value="<?= $sanPham["id"] ?>">
                             <div class="form-group">
                                 <label for="ten_san_pham">Tên sản phẩm</label>
-                                <input type="text" id="ten_san_pham" name="ten_dan_pham" class="form-control" value="<?= $sanPham["ten_san_pham"] ?>">
-                                <?php if (isset($_SESSION['error']['ten_san_pham'])) { ?>
-                                    <p class="text-danger"><?= $_SESSION['error']['ten_san_pham'] ?></p>
-                                <?php } ?>
+                                <input type="text" id="ten_san_pham" name="ten_san_pham" class="form-control" value="<?= $sanPham["ten_san_pham"] ?>">
+                                <!--  -->
                             </div>
                             <div class="form-group">
-                                <label for="gia_san_pham">Giá san phẩm</label>
+                                <label for="gia_san_pham">Giá sản phẩm</label>
                                 <input type="number" id="gia_san_pham" name="gia_san_pham" class="form-control" value="<?= $sanPham["gia_san_pham"] ?>">
                             </div>
                             <div class="form-group">
                                 <label for="gia_khuyen_mai">Giá khuyến mãi</label>
-                                <input type="number" id="gia_khuyen_mai" name="ten_dan_pham" class="form-control" value="<?= $sanPham["gia_khuyen_mai"] ?>">
+                                <input type="number" id="gia_khuyen_mai" name="gia_khuyen_mai" class="form-control" value="<?= $sanPham["gia_khuyen_mai"] ?>">
                             </div>
                             <div class="form-group">
                                 <label for="hinh_anh">Hình ảnh</label>
-                                <input type="file" id="hinh_anh" name="ten_dan_pham" class="form-control">
+                                <input type="file" id="hinh_anh" name="hinh_anh" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="so_luong">Số lượng</label>
-                                <input type="number" id="so_luong" name="ten_dan_pham" class="form-control" value="<?= $sanPham["so_luong"] ?>">
+                                <input type="number" id="so_luong" name="so_luong" class="form-control" value="<?= $sanPham["so_luong"] ?>">
                             </div>
                             <div class="form-group">
                                 <label for="ngay_nhap">Ngày nhập</label>
-                                <input type="date" id="ngay_nhap" name="ten_dan_pham" class="form-control" value="<?= $sanPham["ngay_nhap"] ?>">
+                                <input type="date" id="ngay_nhap" name="ngay_nhap" class="form-control" value="<?= $sanPham["ngay_nhap"] ?>">
                             </div>
                             <div class="form-group">
                                 <label for="inputStatus">Danh mục sản phẩm</label>

@@ -119,7 +119,7 @@ class AdminSanPhamController
             require_once './views/sanpham/editSanPham.php';
             deleteSessionError();
         } else {
-            header("Location: " . BASE_URL_ADMIN . '?act=san-pham');
+            header("Location: " . BASE_URL_ADMIN . '/?act=san-pham');
             exit();
         }
     }
@@ -137,7 +137,7 @@ class AdminSanPhamController
             $san_pham_id = $_POST['san_pham_id'] ?? '';
             //truy van
             $sanPhamOld = $this->modelSanPham->getDetailSanPham($san_pham_id);
-            $old_file = $sanPhamOld['hinh-anh']; //lay anh cu
+            $old_file = $sanPhamOld['hinh_anh']; //lay anh cu
 
             $ten_san_pham = $_POST['ten_san_pham'] ?? '';
             $gia_san_pham = $_POST['gia_san_pham'] ?? '';
@@ -174,11 +174,12 @@ class AdminSanPhamController
             if (empty($trang_thai)) {
                 $errors['trang_thai'] = 'không để trống rống trạng thái';
             }
-            if ($hinh_anh['error'] !== 0) {
-                $errors['hinh_anh'] = 'không để trống rống trạng thái';
-            }
+            // if ($hinh_anh['error'] !== 0) {
+            //     $errors['hinh_anh'] = 'không để trống rống trạng thái';
+            // }
 
             $_SESSION['error'] = $errors;
+
 
             //logic sua anh
             if (isset($hinh_anh) && $hinh_anh['error'] == UPLOAD_ERR_OK) {
@@ -187,9 +188,9 @@ class AdminSanPhamController
 
                 if (!empty($old_file)) { //xoa anh cu neu co
                     deleteFile($old_file);
-                } else {
-                    $new_file = $old_file;
                 }
+            } else {
+                $new_file = $old_file;
             }
 
             //ko co loi
@@ -207,4 +208,8 @@ class AdminSanPhamController
             }
         }
     }
+    //sua album anh
+    // sua anh cu
+    //ko sua anh cu
+    //xoa anh cu
 }
