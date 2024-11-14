@@ -72,7 +72,7 @@ class AdminSanPhamController
             if (empty($trang_thai)) {
                 $errors['trang_thai'] = 'không để trống rống trạng thái';
             }
-            if ($hinh_anh['errors' !== 0]) {
+            if ($hinh_anh['error' !== 0]) {
                 $errors['hinh_anh'] = 'không để trống rống trạng thái';
             }
 
@@ -81,8 +81,9 @@ class AdminSanPhamController
             //ko co loi
             if (empty($errors)) {
                 //neu ko co loi
-                $this->modelSanPham->insertSanPham($ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $so_luong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $file_thumb);
-
+                $san_pham_id = $this->modelSanPham->insertSanPham($ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $so_luong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $file_thumb);
+                var_dump($san_pham_id);
+                die;
                 header("Location:" . BASE_URL_ADMIN . '/?act=san-pham');
             } else {
                 //tra ve form

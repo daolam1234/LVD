@@ -46,6 +46,7 @@ class AdminSanPham
                 ':hinh_anh' => $hinh_anh,
 
             ]);
+            return $this->conn->lastInsertId();
         } catch (Exception $e) {
             echo "loi" . $e->getMessage();
         }

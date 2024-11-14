@@ -26,14 +26,16 @@ match ($act) {
     'danh-muc' => (new AdminDanhMucController())->danhSachDanhMuc(),
     'form-them-danh-muc' => (new AdminDanhMucController())->formAddDanhMuc(),
     'them-danh-muc' => (new AdminDanhMucController())->postAddDanhMuc(),
-    // 'form-sua-danh-muc' => (new AdminDanhMucController())->formEditDanhMuc(),
-    // 'sua-danh-muc' => (new AdminDanhMucController())->postEditDanhMuc(),
-    // 'xoa-danh-muc' => (new AdminDanhMucController())->deleteDanhMuc(),
+    'form-sua-danh-muc' => (new AdminDanhMucController())->formEditDanhMuc(),
+    'sua-danh-muc' => (new AdminDanhMucController())->postEditDanhMuc(),
+    'xoa-danh-muc' => (new AdminDanhMucController())->deleteDanhMuc(),
 
     //route san pham
     'san-pham' => (new AdminSanPhamController())->danhSachSanPham(),
     'form-them-san-pham' => (new AdminSanPhamController())->formAddSanPham(),
     'them-san-pham' => (new AdminSanPhamController())->postAddSanPham(),
+    // 'xoa-danh-muc' => (new AdminDanhMucController())->deleteDanhMuc(),
+
 
     //route quan ly tai khoan
     //route tk quan tri

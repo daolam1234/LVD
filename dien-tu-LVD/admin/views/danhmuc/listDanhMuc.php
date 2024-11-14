@@ -19,7 +19,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Quan ly danh muc san pham</h1>
+                    <h1>Quản lý danh mục sản phẩm</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -30,10 +30,12 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+
+
                     <div class="card">
                         <div class="card-header">
                             <a href="<?= BASE_URL_ADMIN . '?act=form-them-danh-muc' ?>">
-                                <button class="btn btn-success">Them danh muc</button>
+                                <button class="btn btn-success">Thêm danh mục</button>
                             </a>
                         </div>
                         <!-- /.card-header -->
@@ -42,30 +44,35 @@
                                 <thead>
                                     <tr>
                                         <th>STT</th>
-                                        <th>Ten Danh Muc</th>
-                                        <th>Mo ta</th>
-                                        <th>Thao tac</th>
+                                        <th>Tên danh mục</th>
+                                        <th>Mô tả</th>
+                                        <th>Thao tác</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($listDanhMuc as $key => $danhMuc): ?>
                                         <tr>
                                             <th><?= $key + 1 ?></th>
-                                            <th><?= $danhMuc['ten_danh_muc'] ?></th>
-                                            <th><?= $danhMuc['mo_ta'] ?></th>
+                                            <th><?= !empty($danhMuc['ten_danh_muc']) ? $danhMuc['ten_danh_muc'] : 'Không có tên' ?></th>
+                                            <th><?= !empty($danhMuc['mo_ta']) ? $danhMuc['mo_ta'] : 'Không có mô tả' ?></th>
                                             <th>
-                                                <button class="btn btn-warning">Sua</button>
-                                                <button class="btn btn-danger">Xoa</button>
+                                                <a href="<?= BASE_URL_ADMIN . '?act=form-sua-danh-muc&id_danh_muc=' . $danhMuc['id'] ?>">
+                                                    <button class="btn btn-warning">Sửa</button>
+                                                </a>
+                                                <a href="<?= BASE_URL_ADMIN . '?act=xoa-danh-muc&id_danh_muc=' . $danhMuc['id'] ?>" onclick="return confirm('Bạn có chắc muốn xóa không?')">
+                                                    <button class="btn btn-danger">Xóa</button>
+                                                </a>
                                             </th>
                                         </tr>
                                     <?php endforeach ?>
+
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <th>STT</th>
-                                        <th>Ten Danh Muc</th>
-                                        <th>Mo ta</th>
-                                        <th>Thao tac</th>
+                                        <th>Tên danh mục</th>
+                                        <th>Mô tả</th>
+                                        <th>Thao tác</th>
                                     </tr>
                                 </tfoot>
                             </table>
