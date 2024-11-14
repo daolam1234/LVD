@@ -104,4 +104,42 @@ class AdminSanPham
             echo "loi" . $e->getMessage();
         }
     }
+
+    public function updateSanPham($san_pham_id, $ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $so_luong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $hinh_anh)
+    {
+        try {
+            $sql = 'UPDATE san_phams 
+            SET ten_san_pham = :ten_san_pham,
+             gia_san_pham = :gia_san_pham,
+             gia_khuyen_mai = :gia_khuyen_mai,
+             so_luong = :so_luong,
+             ngay_nhap = :ngay_nhap,
+             danh_muc_id = :danh_muc_id,
+             danh_muc_id = :danh_muc_id,
+             trang_thai = :trang_thai,
+             mo_ta = :mo_ta,
+             hinh_anh = :hinh_anh,
+             WHERE id =:id';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([
+                ':ten_san_pham' => $ten_san_pham,
+                ':gia_san_pham' => $gia_san_pham,
+                ':gia_khuyen_mai' => $gia_khuyen_mai,
+                ':so_luong' => $so_luong,
+                ':ngay_nhap' => $ngay_nhap,
+                ':danh_muc_id' => $danh_muc_id,
+                ':trang_thai' => $trang_thai,
+                ':mo_ta' => $mo_ta,
+                ':hinh_anh' => $hinh_anh,
+                ':id' => $san_pham_id
+
+            ]);
+            //lay id san pham vua them
+            return true;
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
 }
