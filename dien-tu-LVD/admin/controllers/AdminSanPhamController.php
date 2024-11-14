@@ -108,4 +108,18 @@ class AdminSanPhamController
             }
         }
     }
+    public function formEditSanPham()
+    {
+        //hàm dùng để hiển thị form nhập
+        $id = $_GET['id_san_pham'];
+        $sanPham = $this->modelSanPham->getDetailSanPham($id);
+        $listSanPham = $this->modelSanPham->getListAnhSanPham($id);
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+        if ($sanPham) {
+            require_once './views/sanpham/editSanPham.php';
+        } else {
+            header("Location: " . BASE_URL_ADMIN . '?act=san-pham');
+            exit();
+        }
+    }
 }

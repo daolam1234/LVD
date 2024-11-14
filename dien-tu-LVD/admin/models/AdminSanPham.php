@@ -56,7 +56,7 @@ class AdminSanPham
     public function insertAlbumAnhSanPham($san_pham_id, $link_hinh_anh)
     {
         try {
-            $sql = "INSERT INTO hinh_anh_san_phams(san_pham_id, link_hinh_anh))
+            $sql = "INSERT INTO hinh_anh_san_phams(san_pham_id, link_hinh_anh)
             VALUES (:san_pham_id, :link_hinh_anh)";
 
             $stmt = $this->conn->prepare($sql);
@@ -68,6 +68,38 @@ class AdminSanPham
             ]);
             //lay id san pham vua them
             return true;
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
+
+    public function getDetailSanPham($id)
+    {
+        try {
+            $sql = 'SELECT * FROM san_phams WHERE id = :id';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([':id' => $id]);
+
+
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
+
+    public function getListAnhSanPham($id)
+    {
+        try {
+            $sql = 'SELECT * FROM hinh_anh_san_phams WHERE san_pham_id = :id';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([':id' => $id]);
+
+
+            return $stmt->fetchAll();
         } catch (Exception $e) {
             echo "loi" . $e->getMessage();
         }
