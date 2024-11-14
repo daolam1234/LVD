@@ -66,8 +66,12 @@
                                             <th><?= $sanPham['ten_danh_muc'] ?></th>
                                             <th><?= $sanPham['trang_thai'] == 1 ? 'Còn hàng' : '<s>Hết hàng</s>'; ?></th>
                                             <th>
-                                                <button class="btn btn-warning">Sua</button>
-                                                <button class="btn btn-danger">Xoa</button>
+                                                <a href="<?= BASE_URL_ADMIN . '/?act=form-sua-san-pham&id_san_pham' . $sanPham['id'] ?>">
+                                                    <button class="btn btn-warning">Sua</button>
+                                                </a><a href="<?= BASE_URL_ADMIN . '/?act=form-sua-san-pham&id_san_pham' . $sanPham['id'] ?>">
+                                                    <button class="btn btn-danger">Xoa</button>
+                                                </a>
+
                                             </th>
                                         </tr>
                                     <?php endforeach ?>

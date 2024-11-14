@@ -45,7 +45,6 @@
                                 <div class="form-group">
                                     <label>Mo ta</label>
                                     <textarea name="mo_ta" class="form-control" id="" placeholder="Nhap mo ta"></textarea>
-
                                 </div>
                                 <!-- /.card-body -->
 
