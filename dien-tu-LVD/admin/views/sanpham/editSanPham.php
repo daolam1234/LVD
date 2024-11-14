@@ -9,6 +9,7 @@
 
 <!-- Main Sidebar Container -->
 <?php include './views/layout/sidebar.php' ?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 
@@ -18,8 +19,11 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
+                <div class="col-sm-11">
                     <h1>Sửa thông tin sản phẩm <?= $sanPham["ten_san_pham"] ?></h1>
+                </div>
+                <div class="col-sm-1 ">
+                    <a href="<?= BASE_URL_ADMIN . '?act=san_pham' ?>" class="btn btn-secondary">Quay lai</a>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -151,12 +155,7 @@
                 <!-- /.card -->
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <a href="#" class="btn btn-secondary">Cancel</a>
-                <input type="submit" value="Save Changes" class="btn btn-success float-right">
-            </div>
-        </div>
+
     </section>
     <!-- /.content -->
 </div>

@@ -275,11 +275,32 @@ class AdminSanPhamController
         $id = $_GET['id_san_pham'];
         $sanPham = $this->modelSanPham->getDetailSanPham($id);
 
-        if ($sanPham) {
-            deleteFile($sanPham['hinh_anh']);
-            $this->modelSanPham->destroySanPham($id);
+        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
+        if ($listAnhSanPham) {
+            foreach ($listAnhSanPham as $key => $anhSP) {
+                deleteFile($anhSP['link_hinh_anh']);
+                $this->modelSanPham->destroyAnhSanPham($anhSP['id']);
+            }
+
+            if ($sanPham) {
+                deleteFile($sanPham['hinh_anh']);
+                $this->modelSanPham->destroySanPham($id);
+            }
+            header("Location: " . BASE_URL_ADMIN . '?act=san_pham');
+            exit();
         }
-        header("Location: " . BASE_URL_ADMIN . '?act=san_pham');
-        exit();
+    }
+
+    public function detailSanPham()
+    {
+        $id = $_GET['id_san_pham'];
+        $sanPham = $this->modelSanPham->getDetailSanPham($id);
+        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
+        if ($sanPham) {
+            require_once './views/sanpham/detailSanPham.php';
+        } else {
+            header("Location: " . BASE_URL_ADMIN . '/?act=san-pham');
+            exit();
+        }
     }
 }
