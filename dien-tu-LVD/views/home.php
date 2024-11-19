@@ -162,7 +162,7 @@
                                             <figure class="product-thumb">
                                                 <a href="product-details.html">
                                                     <img class="pri-img" src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="product">
-                                                    <img class="sec-img" src="assets/img/product/product-18.jpg" alt="product">
+                                                    <img class="sec-img" src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="product">
                                                 </a>
                                                 <div class="product-badge">
                                                     <?php
