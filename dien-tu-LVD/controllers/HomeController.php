@@ -11,8 +11,10 @@ class HomeController
 
     public function home()
     {
-        echo "Day la home";
+        $listSanPham = $this->modelSanPham->getAllProduct();
+        require_once './views/home.php';
     }
+
     public function trangChu()
     {
         echo "day la trang chu";
