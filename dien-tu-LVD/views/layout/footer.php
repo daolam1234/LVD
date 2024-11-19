@@ -94,7 +94,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="copyright-text text-center">
-                        <p>&copy; 2022 <b>Corano</b> Made with <i class="fa fa-heart text-danger"></i> by <a href="https://hasthemes.com/"><b>HasThemes</b></a></p>
+                        <p>&copy; 2024 <b>LVD</b> Made with <i class="fa fa-heart text-danger"></i> by <a href="https://hasthemes.com/"><b>LVD ENTERTAIMENT</b></a></p>
                     </div>
                 </div>
             </div>
