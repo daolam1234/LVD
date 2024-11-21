@@ -11,7 +11,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="<?= BASE_URL ?>">
-                                <img src="assets/img/logo/lvd.png" style="width: 120px " alt="Brand Logo">
+                                <img src="assets/img/logo/lvd.png" style="width: 120px" alt="Brand Logo">
                             </a>
                         </div>
                     </div>

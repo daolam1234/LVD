@@ -27,9 +27,11 @@ match ($act) {
     // Trang chủ
     '/' => (new HomeController())->home(),
 
-    'trangchu' => (new HomeController())->trangChu(),
-    // BASE_URL/?act=trangchu
+    // 'trangchu' => (new HomeController())->trangChu(),
+    // // BASE_URL/?act=trangchu
 
-    'danh-sach-san-pham' => (new HomeController())->danhSachSanPham()
+    'danh-sach-san-pham' => (new HomeController())-> danhSachSanPham(),
     // BASE_URL/?act=danh-sach-san-pham
+
+    'chi-tiet-san-pham' => (new HomeController()) -> chiTietSanPham()
 };

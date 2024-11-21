@@ -13,8 +13,8 @@
                     <div class="widget-item">
                         <div class="widget-title">
                             <div class="widget-logo">
-                                <a href="index.html">
-                                    <img src="assets/img/logo/lvd.png" alt="brand logo">
+                                <a href="<?= BASE_URL ?>">
+                                    <img style="witdh: 120px" src="assets/img/logo/lvd.png" alt="brand logo">
                                 </a>
                             </div>
                         </div>
