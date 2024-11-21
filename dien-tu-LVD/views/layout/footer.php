@@ -31,7 +31,7 @@
                                 <ul>
                                     <li><i class="pe-7s-home"></i> Số 1 Trịnh Văn Bô</li>
                                     <li><i class="pe-7s-mail"></i> <a href="mailto:demo@plazathemes.com">lvd@gmail.com </a></li>
-                                    <li><i class="pe-7s-call"></i> <a href="tel:(012)800456789987">(012) 800 456 789-987</a></li>
+                                    <li><i class="pe-7s-call"></i> <a href="tel:(012)800456789987">(84) 559-216-732</a></li>
                                 </ul>
                             </address>
                         </div>
