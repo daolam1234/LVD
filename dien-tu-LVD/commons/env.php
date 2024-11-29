@@ -12,7 +12,7 @@ define('DB_HOST', 'localhost');
 define('DB_PORT', 3306);
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_NAME', 'dientu_lvd');  // Tên database
+define('DB_NAME', 'dientu_lvd2');  // Tên database
 //jabsdkjbsadsd kjsadkad
 
 define('PATH_ROOT', __DIR__ . '/../');
