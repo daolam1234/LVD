@@ -49,7 +49,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= BASE_URL_ADMIN . '?act=don-hang' ?>" class="nav-link">
+                    <a href="<?= BASE_URL_ADMIN . '?act=san-pham' ?>" class="nav-link">
                         <i class="nav-icon fas fa-cat"></i>
                         <p>
                             Don hang

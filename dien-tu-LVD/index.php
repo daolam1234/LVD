@@ -33,5 +33,5 @@ match ($act) {
     'danh-sach-san-pham' => (new HomeController())-> danhSachSanPham(),
     // BASE_URL/?act=danh-sach-san-pham
 
-    'chi-tiet-san-pham' => (new HomeController()) -> chiTietSanPham()
+    'chi-tiet-san-pham' => (new HomeController()) -> chiTietSanPham(),
 };
