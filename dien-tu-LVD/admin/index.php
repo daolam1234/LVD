@@ -8,12 +8,14 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 require_once './controllers/AdminDanhMucController.php';
 require_once './controllers/AdminSanPhamController.php';
 require_once './controllers/AdminTaiKhoanController.php';
+require_once './controllers/AdminDonHangController.php';
 
 
 // Require toàn bộ file Models
 require_once './models/AdminDanhMuc.php';
 require_once './models/AdminSanPham.php';
 require_once './models/AdminTaiKhoan.php';
+require_once './models/AdminDonHang.php';
 
 
 
@@ -39,6 +41,13 @@ match ($act) {
     'sua-album-anh-san-pham' => (new AdminSanPhamController())->postEditAnhSanPham(),
     'xoa-san-pham' => (new AdminSanPhamController())->deleteSanPham(),
     'chi-tiet-san-pham' => (new AdminSanPhamController())->detailSanPham(),
+
+    //route quản lý đơn hàng
+    'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
+    'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
+    'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
+    
+    'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
 
 
     //route quan ly tai khoan
